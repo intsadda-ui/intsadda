@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	    
+    <style>
+        /* 1. Global Reset and Base Styling */
+        :root {
+            --primary-color: #007bff; /* A clean blue for highlights */
+            --secondary-color: #28a745; /* Green for CTAs/Success */
+            --dark-color: #333;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-color);
+            background-color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 40px 0;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-top: 0;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* 2. Hero Section */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-image.jpg') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 1.5em;
+            font-weight: 300;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        /* 3. Story Section (Alternating Layout) */
+        .story-section {
+            padding: 60px 0;
+            background-color: var(--light-bg);
+            border-bottom: 1px solid #eee;
+        }
+
+        .story-block {
+            display: flex;
+            align-items: center;
+            margin-bottom: 60px;
+            gap: 260px;
+        }
+
+        .story-block:nth-child(even) {
+            flex-direction: row-reverse; /* Swap image and text for checkerboard effect */
+        }
+
+        .story-block img {
+            width: 20%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-text {
+            width: 55%;
+        }
+
+        .story-text h3 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+        }
+
+        /* 4. Values Section */
+        .values-section {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .value-card {
+            background: #fff;
+            padding: 30px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        .value-card i {
+            font-size: 2em;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        /* 5. Team Section */
+        .team-section {
+            background-color: var(--light-bg);
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .team-member {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%; /* Circular images */
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 3px solid var(--primary-color);
+        }
+
+        .team-member h4 {
+            margin: 5px 0 2px;
+            color: var(--dark-color);
+        }
+
+        .team-member p {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        /* 6. Call to Action (CTA) */
+        .cta-section {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            margin: 0 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .cta-primary {
+            background-color: var(--secondary-color);
+            color: white;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .cta-primary:hover {
+            background-color: #218838;
+        }
+
+        .cta-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-secondary:hover {
+            background-color: white;
+            color: var(--dark-color);
+        }
+
+        /* 7. Responsiveness (Mobile First) */
+        @media (max-width: 992px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+            }
+            .values-grid {
+                grid-template-columns: 1fr; /* 1 column on smaller screens */
+            }
+            .story-block {
+                flex-direction: column; /* Stack image and text vertically */
+                text-align: center;
+            }
+            .story-block:nth-child(even) {
+                 flex-direction: column; /* Keep stacked, no reverse needed */
+            }
+            .story-block img, .story-text {
+                width: 100%;
+            }
+            .hero-content h1 {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+
+
+
+
+</head>
+<body>
+<center>
+<div class="main">
+	<div class="nav"> 
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="result.html">Result</a></li>
+			<li><a href="#">Download</a></li>
+			<li><a href="#">Regst</a></li>
+			<li><a href="#">About</a></li>
+		</ul>
+
+	 </div>
+	<div class="noti" style="color: black;"> <Marquee>Hello INT Sadda Admisson Open 2025-26</Marquee></div>
+
+	
+	
+		
+	<header class="hero">
+        <div class="hero-content">
+            <h1>INSTITUTE OF NETWORKING AND TECHNOLOGY</h1>
+            <p>Our mission is simple: To provide accessible, reliable, and innovative solutions for everyone.</p>
+        </div>
+    </header>
+
+    <section class="story-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 50px;">The Journey from Idea to Impact</h2>
+            
+            <div class="story-block">
+                <div class="story-text">
+                    <h3>The Spark: Identifying the Problem</h3>
+                    <p>Our company was founded in **2019** after realizing a significant gap in the market: [State the problem clearly, e.g., "Existing platforms were too complex and expensive for small businesses."]. We saw how many talented individuals and small ventures were limited by technology that didn't scale with their ambition. We knew there had to be a simpler, more intuitive solution.</p>
+                </div>
+                <img src="MAN.PNG" alt="Image of a team meeting or an early sketch">
+            </div>
+
+            <div class="story-block">
+                <img src="ahmad.jpg" alt="Image of a sleek product dashboard">
+                <div class="story-text">
+                    <h3>The Solution: Innovation Through Simplicity</h3>
+                    <p>We spent the next two years designing a platform that prioritized user experience and accessibility. We focused on **removing the complexity** and making powerful tools available with just a few clicks. This commitment to simplicity is what drives our development and separates us from the competition.</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="values-section">
+        <div class="container">
+            <h2>Our Guiding Principles</h2>
+            <p style="max-width: 700px; margin: 15px auto 40px;">Our values aren't just words; they are the foundation for every decision we make, from product design to customer support.</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovation</h3>
+                    <p>We are committed to continuous learning and pushing technological boundaries to better serve our users.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Integrity</h3>
+                    <p>We operate with transparency, honesty, and a commitment to earning the trust of our clients and partners every day.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Customer Focus</h3>
+                    <p>Our success is measured by the success of our users. We prioritize their feedback and strive to exceed their expectations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="container">
+            <h2>Meet Our Leadership</h2>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="man.png" alt="Photo of Founder 1">
+                    <h4>Ali Khan</h4>
+                    <p>Co-Founder & CEO</p>
+                    <small>Visionary strategist.</small>
+                </div>
+                <div class="team-member">
+                    <img src="ahmad.jpg" alt="Photo of Founder 2">
+                    <h4>Sara Ahmed</h4>
+                    <p>Co-Founder & CTO</p>
+                    <small>Leads product innovation.</small>
+                </div>
+                <div class="team-member">
+                    <img src="man.png" alt="Photo of Head of Marketing">
+                    <h4>Omar Sharif</h4>
+                    <p>Head of Marketing</p>
+                    <small>Expert in digital growth.</small>
+                </div>
+                <div class="team-member">
+                    <img src="ahmad.jpg" alt="Photo of Head of Operations">
+                    <h4>Maria Hussain</h4>
+                    <p>Head of Operations</p>
+                    <small>Ensuring smooth efficiency.</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Join Our Community?</h2>
+            <p>Learn how our tools can transform the way you work.</p>
+            <a href="/services" class="cta-button cta-primary">Explore Our Solutions</a>
+            <a href="/contact" class="cta-button cta-secondary">Contact Our Team</a>
+        </div>
+    </section>
+
+
+</div>
+</center>
+</body>
+</html>

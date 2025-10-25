@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<style>
+        /* 1. Global Reset and Form Container Styling */
+
+        }
+
+        #registrationForm {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px; /* Max width for desktop viewing */
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            color: #555;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        /* 2. Two-Column Layout Implementation */
+        .form-row {
+            display: flex;
+            gap: 30px; /* Space between the two columns */
+            margin-bottom: 20px;
+        }
+
+        .form-column {
+            flex: 1; /* Makes columns share space equally */
+        }
+
+        /* 3. Input Field and Label Styling */
+        label {
+            display: block; /* Makes the label take its own line */
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box; 
+            transition: border-color 0.3s;
+        }
+        
+        /* Specific styling for file input to look better */
+        input[type="file"] {
+             margin-bottom: 5px;
+        }
+        
+        small {
+            display: block;
+            margin-bottom: 20px;
+            color: #777;
+        }
+
+        input:focus, select:focus {
+            border-color: #007bff; /* Highlight focus with a primary color */
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+        }
+
+        /* 4. Submission Button Styling */
+        .signup-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #28a745; /* Green for Sign Up/Success */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .signup-button:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+
+        /* 5. Legal/Terms and Login Link */
+        .form-legal {
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        
+        .form-legal label {
+            display: inline;
+            font-weight: normal;
+        }
+        
+        .form-legal input[type="checkbox"] {
+            margin-right: 8px;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        .login-link a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* 6. Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column; /* Stack columns vertically */
+                gap: 0;
+            }
+            
+            #registrationForm {
+                padding: 20px;
+                box-shadow: none; /* Remove box shadow on small screens */
+            }
+        }
+    </style>
+
+
+
+
+
+</head>
+<body>
+<center>
+<div class="main">
+	<div class="nav"> 
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="result.html">Result</a></li>
+			<li><a href="#">Download</a></li>
+			<li><a href="#">Regst</a></li>
+			<li><a href="#">About</a></li>
+		</ul>
+
+	 </div>
+	<div class="noti" style="color: black;"> <Marquee>Hello INT Sadda Admisson Open 2025-26</Marquee></div>
+
+	<form id="registrationForm" action="/submit_registration" method="POST" enctype="multipart/form-data">
+        <h2>Create Your Website Account</h2>
+
+        <div class="form-row">
+            
+            <div class="form-column">
+                <h3>Account Security</h3>
+                
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required placeholder="your.name@example.com">
+                
+                <label for="password">Password *</label>
+                <input type="password" id="password" name="password" required minlength="8" placeholder="Minimum 8 characters">
+                
+                <label for="confirm_password">Confirm Password *</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+
+            <div class="form-column">
+                <h3>Personal Details</h3>
+                
+                <label for="fname">First Name *</label>
+                <input type="text" id="fname" name="fname" required>
+                
+                <label for="lname">Last Name *</label>
+                <input type="text" id="lname" name="lname" required>
+                
+                <label for="dob">Date of Birth *</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <h3>Contact & Location</h3>
+            
+            <label for="contact">Contact Number</label>
+            <input type="tel" id="contact" name="contact" placeholder="+92 3XX XXXXXXX">
+
+            <label for="nation">Nationality *</label>
+            <select id="nation" name="nation" required>
+                <option value="">-- Select Nationality --</option>
+                <option value="pakistan">Pakistan</option>
+                <option value="usa">United States</option>
+                </select>
+            
+            <label for="province">Province / State</label>
+            <input type="text" id="province" name="province">
+
+            <label for="cnic">CNIC / National ID</label>
+            <input type="text" id="cnic" name="cnic" placeholder="xxxxx-xxxxxxx-x">
+        </div>
+
+        <div class="form-section">
+            
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender">
+                <option value="prefer_not_to_say">Prefer not to say</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            
+            <label for="profile_photo">Profile Photo</label>
+            <input type="file" id="profile_photo" name="profile_photo" accept="image/jpeg, image/png">
+            <small>Max file size: 2MB (JPG or PNG)</small>
+        </div>
+
+        <div class="form-legal">
+            <input type="checkbox" id="terms" name="terms" required>
+            <label for="terms">I agree to the <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a> *</label>
+        </div>
+        
+        <button type="submit" class="signup-button">CREATE ACCOUNT</button>
+        
+        <p class="login-link">Already have an account? <a href="/login">Log In</a></p>
+    </form>
+	
+		
+	<div class="footer"> &#169 &nbsp &nbsp &nbsp &nbsp &nbspINT</div>
+
+
+</div>
+</center>
+</body>
+</html>
